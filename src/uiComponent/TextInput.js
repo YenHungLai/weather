@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 const TextInput = (props) => {
     return (
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">location_on</i>
-                        <input onChange={props.handleClick} id="icon_prefix" type="text" class="validate" />
+        <div className="row">
+            <form className="col s12">
+                <div className="row">
+                    <div className="input-field col s6">
+                        <i className="material-icons prefix">location_on</i>
+                        <input id="icon_prefix" type="text" className="validate" />
                         <label for="icon_prefix">Enter City Name</label>
+                        <button onClick={props.handleClick} className='btn'>Submit</button>
                     </div>
                 </div>
             </form>
