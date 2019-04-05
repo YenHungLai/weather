@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
+import Navbar from './uiComponent/Navbar';
+import TextInput from './uiComponent/TextInput';
+import Card from './uiComponent/Card';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    state = {
+        city: ''
+    }
+
+    handleClick = (e) => {
+        console.log(e.target.value);
+    }
+
+    async componentDidMount() {
+        // const API_KEY = 'b052fe9ae693d8d824e710562303a84a';
+        // const lang = 'zh_tw';
+        // const units = 'metric';
+        // const res = await axios.get(`
+        //     https://api.openweathermap.org/data/2.5/weather?q=Prescott&units=${units}&lang=${lang}&APPID=${API_KEY}
+        // `);
+        // console.log(res);
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <Navbar />
+                <TextInput handleClick={this.handleClick} />
+                <Card />
+            </div>
+        );
+    }
 }
 
 export default App;
