@@ -2,7 +2,7 @@ import React from 'react';
 import ReactAnimatedWeather from 'react-animated-weather';
 
 const Card = (props) => {
-    console.log('Card component here');
+    // console.log('WeatherResult component here');
 
     const { name, coord, main, weather, wind } = props.weatherData;
     // console.log(props.weatherData);

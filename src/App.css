@@ -1,3 +1,12 @@
 .App {
     text-align: center;
 }
+
+.carousel {
+    height: 500px !important;
+}
+
+.carousel-item {
+    width: 300px !important;
+    height: 400px !important;
+}
