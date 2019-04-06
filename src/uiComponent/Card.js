@@ -8,6 +8,7 @@ const Card = (props) => {
     // console.log(props.weatherData);
     const description = weather[0].description;
 
+    // Render different weather icons.
     let icon = 'RAIN';
     if (String(weather[0].id).startsWith('5')) {
         icon = 'RAIN';
@@ -29,7 +30,7 @@ const Card = (props) => {
     };
 
     return (
-        <div className="card mx-10 w-64 sm:w-2/5 mx-auto">
+        <div className="card mx-10 xl:w-1/5 sm:w-2/5 mx-auto animated fadeIn">
             <div className="card-content flex flex-col items-start">
                 <span className="card-title self-center"><strong>{name}</strong></span>
 

@@ -1,5 +1,4 @@
 // TODO:
-//    Fix styling
 //    Add change language feature
 //    Add background animation for the weather: raining, sunny....
 //    Add weather forecast feature
