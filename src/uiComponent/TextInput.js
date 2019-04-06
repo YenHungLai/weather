@@ -10,7 +10,7 @@ const TextInput = (props) => {
                         <i className="material-icons prefix">location_on</i>
                         <input id="icon_prefix" type="text" className="validate" />
                         <label for="icon_prefix">Enter City Name</label>
-                        <button onClick={props.handleClick} className='btn'>Submit</button>
+                        <button onClick={props.handleClick} className='btn red lighten-2'>Submit</button>
                     </div>
                 </div>
             </form>
