@@ -46,11 +46,11 @@ const WeatherForecast = (props) => {
 
     return (
         <div className="card carousel-item">
-            <div className="card-content">
-                <h1>{weekday} {date.getMonth()+1}/{date.getDate()}</h1>
-                <span className="card-title"><strong>{name}</strong></span>
+            <div className="card-content flex flex-col items-start">
+                <h1 className='self-center'>{date.getHours()}:00 {weekday} {date.getMonth()+1}/{date.getDate()}</h1>
+                <span className="card-title self-center"><strong>{name}</strong></span>
 
-                <div className=''>
+                <div className='mx-auto mb-1'>
                     <ReactAnimatedWeather
                         icon={defaults.icon}
                         color={defaults.color}
@@ -59,17 +59,22 @@ const WeatherForecast = (props) => {
                     />
                 </div>
 
-                <h1 className=''>{description}</h1>
+                <h1 className='self-center mb-5'>{description}</h1>
 
                 {Object.keys(main).map((key, index) => {
-                    return (
-                        <div key={index}><strong>{key}</strong>: {main[key]}</div>
-                    );
+                    if (key.startsWith('temp')) {
+                        return (
+                            // Convert Kelvin to Celsius and keep two devimal places, the API unit param not working???
+                            <div className='ml-24' key={index}><strong>{key}</strong>: {(main[key]-273.15).toFixed(2)}&#8451;</div>
+                        );
+                    } else {
+                        return <div className='ml-24' key={index}><strong>{key}</strong>: {main[key]}</div>;
+                    }
                 })}
 
-                <div><strong>Wind Speed</strong>: {wind.speed}</div>
-                <div><strong>Latitude</strong>: {coord.lat}</div>
-                <div><strong>Longitude</strong>: {coord.lon}</div>
+                <div className='ml-24'><strong>wind speed</strong>: {wind.speed}</div>
+                <div className='ml-24'><strong>latitude</strong>: {coord.lat}</div>
+                <div className='ml-24'><strong>longitude</strong>: {coord.lon}</div>
             </div>
         </div>
     );

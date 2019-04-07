@@ -32,6 +32,7 @@ const Card = (props) => {
     return (
         <div className="card mx-10 xl:w-1/5 sm:w-2/5 mx-auto animated fadeIn">
             <div className="card-content flex flex-col items-start">
+                <h1 className='self-center'>Today</h1>
                 <span className="card-title self-center"><strong>{name}</strong></span>
 
                 <div className='mx-auto mb-1'>
@@ -46,14 +47,19 @@ const Card = (props) => {
                 <h1 className='self-center mb-5'>{description}</h1>
 
                 {Object.keys(main).map((key, index) => {
-                    return (
-                        <div className='ml-8' key={index}><strong>{key}</strong>: {main[key]}</div>
-                    );
+                    if (key.startsWith('temp')) {
+                        return (
+                            // Convert Kelvin to Celsius and keep two devimal places, the API unit param not working???
+                            <div className='ml-20 xl:ml-24' key={index}><strong>{key}</strong>: {(main[key]-273.15).toFixed(2)}&#8451;</div>
+                        );
+                    } else {
+                        return <div className='ml-20 xl:ml-24' key={index}><strong>{key}</strong>: {main[key]}</div>;
+                    }
                 })}
 
-                <div className='ml-8'><strong>Wind Speed</strong>: {wind.speed}</div>
-                <div className='ml-8'><strong>Latitude</strong>: {coord.lat}</div>
-                <div className='ml-8'><strong>Longitude</strong>: {coord.lon}</div>
+                <div className='ml-20 xl:ml-24'><strong>wind speed</strong>: {wind.speed}</div>
+                <div className='ml-20 xl:ml-24'><strong>latitude</strong>: {coord.lat}</div>
+                <div className='ml-20 xl:ml-24'><strong>longitude</strong>: {coord.lon}</div>
             </div>
         </div>
     );
