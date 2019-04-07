@@ -47,7 +47,7 @@ const WeatherForecast = (props) => {
     return (
         <div className="card carousel-item animated fadeIn">
             <div className="card-content flex flex-col items-start">
-                <h1 className='self-center'>{parseInt(date.getHours())}:00 {weekday} {date.getMonth()+1}/{date.getDate()}</h1>
+                <h1 className='self-center'>{date.getHours()}:00 {weekday} {date.getMonth()+1}/{date.getDate()}</h1>
                 <span className="card-title self-center"><strong>{name}</strong></span>
 
                 <div className='mx-auto mb-1'>
