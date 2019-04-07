@@ -1,17 +1,19 @@
 // TODO:
 //    Add change language feature
 //    Add background animation for the weather: raining, sunny....
-//    Add weather forecast feature
 
+// Libraries
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
+// Components
 import Navbar from './uiComponent/Navbar';
 import TextInput from './uiComponent/TextInput';
 import WeatherResult from './uiComponent/WeatherResult';
 import WeatherForecast from './uiComponent/WeatherForecast'
-import M from 'materialize-css'
 import TestCard from './uiComponent/testCard'
+// Utilities
+import M from 'materialize-css'
+import './App.css';
 
 class App extends Component {
     constructor() {
@@ -22,14 +24,6 @@ class App extends Component {
             forecastData: []
         }
         this.myRef = React.createRef();
-
-        // // Initialize carousel
-        // document.addEventListener('DOMContentLoaded', () => {
-        //   var elems = document.querySelectorAll('.carousel');
-        //   var instances = M.Carousel.init(elems, {
-        //       duration: 200
-        //   });
-        // });
     }
 
     handleClick = async (e) => {
@@ -92,7 +86,8 @@ class App extends Component {
                 {/* Hide card component before user clicks submit button */}
                 <div ref={this.myRef} style={{display: 'none'}}>
                     {
-                        // Only monut Card component when data from API is received
+                        // Only render component when data from API is received
+                        // Current weather
                         Object.keys(this.state.weatherData).length > 0 ? (
                             <WeatherResult weatherData={this.state.weatherData} />
                         ) : null
@@ -100,7 +95,7 @@ class App extends Component {
                 </div>
 
                 {
-                    // Only monut Card component when data from API is received
+                    // Only render component when data from API is received
                     Object.keys(this.state.forecastData).length > 0 ? (
                         <div class="carousel mb-32">
                             {forecastData.list.map(item => {
@@ -115,12 +110,9 @@ class App extends Component {
                         </div>
                     ) : null
                 }
-
             </div>
         );
     }
 }
-
-
 
 export default App;

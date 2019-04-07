@@ -5,7 +5,7 @@ const Navbar = (props) => {
     return (
         <nav>
             <div className="nav-wrapper">
-                <span className="brand-logo center">Weather APP</span>
+                <span className="brand-logo center">Weather</span>
             </div>
         </nav>
     );
